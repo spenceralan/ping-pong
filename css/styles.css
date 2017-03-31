@@ -2,10 +2,13 @@
   display: none;
 }
 
-
 body {
   background-image: url("../img/pong.png");
   background-size: 100%;
   background-color: black;
   color: white;
+}
+
+.container {
+  margin-top: 75px;
 }

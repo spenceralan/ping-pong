@@ -115,9 +115,9 @@ $(function(){
     if (number === 0) {
       return;
     } else if (number > 1) {
-      $("#howManyPings").append(`You got ${number} ${type}s!<br>`);
+      $("#howManyPings").prepend(`<h3>You got ${number} ${type}s!</h3>`);
     } else {
-      $("#howManyPings").append(`You got ${number} ${type}!<br>`);
+      $("#howManyPings").prepend(`<h3>You got ${number} ${type}!</h3>`);
     };
   };
 
