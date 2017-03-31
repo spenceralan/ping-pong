@@ -11,30 +11,38 @@
   <body>
     <div class="container" id="pingPongSubmissionPage">
 
-       <form id="pingPongForm">
+      <div class="row">
+        <div class="col-sm-5">
+          <form id="pingPongForm">
 
-        <h1>What's your pong?!</h1>
+            <h1>What's your pong?!</h1>
 
-        <div class="form-group">
-          <label for="numeralInput">Enter a positive whole number to analyze!</label>
-          <input type="text" class="form-control" id="pingPongInput">
-          <hr>
-          <button type="submit" class="btn btn-success" name="submitButton" id="pingButton">Ping Me!</button>
-          <button class="btn btn-danger" id="pongButton">Pong Me!</button>
+            <div class="form-group">
+              <label for="numeralInput">Enter a positive whole number to analyze!</label>
+              <input type="text" class="form-control" id="pingPongInput">
+              <hr>
+              <button type="submit" class="btn btn-success" name="submitButton" id="pingButton">Ping Me!</button>
+              <button class="btn btn-danger" id="pongButton">Pong Me!</button>
+            </div>
+
+          </form>
         </div>
 
-      </form>
+        <div class="col-sm-2"></div>
 
-      <div>
-        <hr>
-        <h4 id="pingPongAlert"></h4>
+        <div class="col-sm-5">
+          <div>
+            <h4 id="pingPongAlert"></h4>
+          </div>
+
+
+          <div id="resultsPage">
+            <h3 id="pingMessage"></h3>
+            <ul id="pingPongResults"></ul>
+          </div>
+        </div>
       </div>
 
-
-      <div id="resultsPage">
-        <h3 id="pingMessage"></h3>
-        <ul id="pingPongResults"></ul>
-      </div>
 
     </div>
   </body>
