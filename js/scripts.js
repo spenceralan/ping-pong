@@ -16,18 +16,36 @@ const isDivisibleBy15 = function(number) {
   return number % 15 === 0;
 };
 
-
+const numbersDescending = function(number) {
+  let numbers = [];
+  for (let i=number; i > 0; i--) {
+    numbers.push(i);
+  };
+  return numbers;
+};
 
 //frontend
 
 $(function(){
+
   $("#pingPongForm").submit(function(event){
+
     event.preventDefault();
+
+    const displayResults = function(results) {
+      $("#pingPongAlert").empty();
+      $("#pingPongResults").empty();
+      results.forEach(function(result) {
+        $("#pingPongResults").append(`<li>${result}</li>`);
+      });
+    };
+
     let userNumber = $("#pingPongInput").val();
+
     if (isNumber(userNumber)) {
-      $("#pingPongAlert").text("Congratulations! You know what a number is!");
+      displayResults(numbersDescending(Number(userNumber)));
     } else {
-      $("#pingPongAlert").text("I'm sorry, it appears you do not know what a number is! Please try again in a few years.");
+      $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years.");
     }
   });
 });
