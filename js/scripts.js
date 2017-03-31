@@ -24,28 +24,50 @@ const numbersDescending = function(number) {
   return numbers;
 };
 
+const pingPongTransformer = function(numbers) {
+  return numbers.map(function(number) {
+    if (isDivisibleBy15(number)) {
+      return "PINGPONG!";
+    } else if (isDivisibleBy5(number)) {
+      return "PONG!";
+    } else if (isDivisibleBy3(number)) {
+      return "PING!";
+    } else {
+      return number;
+    };
+  });
+};
+
 //frontend
 
 $(function(){
+
+  const displayResults = function(results) {
+    $("#pingPongAlert").empty();
+    $("#pingPongResults").empty();
+    results.forEach(function(result) {
+      $("#pingPongResults").append(`<li>${result}</li>`);
+    });
+  };
+
+  const displayAlert = function() {
+    $("#pingPongAlert").empty();
+    $("#pingPongResults").empty();
+    $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years.");
+  };
 
   $("#pingPongForm").submit(function(event){
 
     event.preventDefault();
 
-    const displayResults = function(results) {
-      $("#pingPongAlert").empty();
-      $("#pingPongResults").empty();
-      results.forEach(function(result) {
-        $("#pingPongResults").append(`<li>${result}</li>`);
-      });
-    };
+    const userInput = $("#pingPongInput").val();
 
-    let userNumber = $("#pingPongInput").val();
-
-    if (isNumber(userNumber)) {
-      displayResults(numbersDescending(Number(userNumber)));
+    if (isNumber(userInput)) {
+      const number = Number(userInput);
+      const pingPongList = pingPongTransformer(numbersDescending(number));
+      displayResults(pingPongList);
     } else {
-      $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years.");
+      displayAlert();
     }
   });
 });
