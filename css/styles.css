@@ -12,3 +12,7 @@ body {
 .container {
   margin-top: 75px;
 }
+
+ul {
+  list-style-type: none;
+}

@@ -16,6 +16,10 @@ const isDivisibleBy15 = function(number) {
   return number % 15 === 0;
 };
 
+const randomNumber = function() {
+  return Math.ceil(Math.random() * 250).toString()
+};
+
 const numbersAscending = function(number) {
   let numbers = [];
   for (let i=1; i <= number; i++) {
@@ -88,11 +92,13 @@ $(function(){
     displayNumberOfPings(numberOfPongs, "pong");
     displayNumberOfPings(numberOfPingPongs, "pingpong");
 
+    $("#resultsPage").show();
+
     pingPongList.forEach(function(result) {
       $("#pingPongResults").append(`<li>${result}</li>`);
     });
 
-    $("#resultsPage").show();
+
   };
 
   const displayAlert = function(userInput) {
@@ -139,6 +145,19 @@ $(function(){
     event.preventDefault();
 
     const userInput = $("#pingPongInput").val();
+
+    if (isNumber(userInput)) {
+      displayResults(userInput, numbersDescending);
+    } else {
+      displayAlert(userInput);
+    };
+  });
+
+  $("#randomButton").click(function(event){
+
+    event.preventDefault();
+
+    const userInput = randomNumber();
 
     if (isNumber(userInput)) {
       displayResults(userInput, numbersDescending);
