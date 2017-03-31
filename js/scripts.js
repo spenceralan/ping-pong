@@ -65,7 +65,7 @@ $(function(){
       $("#pingMessage").text("You've been pinged!");
     } else {
       $("#pingMessage").text("You've been ponged!");
-    }
+    };
 
     $("#pingPongAlert").empty();
     $("#pingPongResults").empty();
@@ -82,13 +82,13 @@ $(function(){
     $("#pingPongAlert").empty();
 
     if (userInput === "") {
-      $("#pingPongAlert").text("We cant pong you if you don't input a number!");
+      $("#pingPongAlert").text("We can't ping or pong you if you don't input a number!");
     } else if (userInput === 0) {
-      $("#pingPongAlert").text("Looks like you typed a zero. Guess there will be no pongs for you today.");
+      $("#pingPongAlert").text("Looks like you typed a zero. Guess there will be no pings or pongs for you today.");
     } else if (userInput > 250) {
       $("#pingPongAlert").text("If you are seeking that many pings or pongs I would strongly advise you seek the help of a medical professional.");
     } else {
-      $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years.");
+      $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years when you have acquired that skill.");
     } ;
   };
 
