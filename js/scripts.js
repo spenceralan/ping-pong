@@ -61,6 +61,12 @@ $(function(){
       return displayAlert(userNumber);
     };
 
+    if (direction === numbersAscending) {
+      $("#pingMessage").text("You've been pinged!");
+    } else {
+      $("#pingMessage").text("You've been ponged!");
+    }
+
     $("#pingPongAlert").empty();
     $("#pingPongResults").empty();
 
