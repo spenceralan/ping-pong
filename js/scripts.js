@@ -24,7 +24,9 @@ const numbersDescending = function(number) {
   return numbers;
 };
 
-const pingPongTransformer = function(numbers) {
+const pingPongTransformer = function(number) {
+  const numbers = numbersDescending(number);
+
   return numbers.map(function(number) {
     if (isDivisibleBy15(number)) {
       return "PINGPONG!";
@@ -42,18 +44,35 @@ const pingPongTransformer = function(numbers) {
 
 $(function(){
 
-  const displayResults = function(results) {
+  const displayResults = function(userInput) {
+    const userNumber = Number(userInput);
+    const pingPongList = pingPongTransformer(userNumber);
+
+    if (userNumber === 0) {
+      return displayAlert("0");
+    };
+
     $("#pingPongAlert").empty();
     $("#pingPongResults").empty();
-    results.forEach(function(result) {
+
+    pingPongList.forEach(function(result) {
       $("#pingPongResults").append(`<li>${result}</li>`);
     });
+
+    $("#resultsPage").show();
   };
 
-  const displayAlert = function() {
+  const displayAlert = function(userInput) {
+    $("#resultsPage").hide();
     $("#pingPongAlert").empty();
-    $("#pingPongResults").empty();
-    $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years.");
+
+    if (userInput === "") {
+      $("#pingPongAlert").text("We cant pong you if you don't input a number!");
+    } else if (Number(userInput) === 0) {
+      $("#pingPongAlert").text("Looks like you typed a zero. Guess there will be no pongs for you today.");
+    } else {
+      $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years.");
+    } ;
   };
 
   $("#pingPongForm").submit(function(event){
@@ -63,11 +82,10 @@ $(function(){
     const userInput = $("#pingPongInput").val();
 
     if (isNumber(userInput)) {
-      const number = Number(userInput);
-      const pingPongList = pingPongTransformer(numbersDescending(number));
-      displayResults(pingPongList);
+      displayResults(userInput);
     } else {
-      displayAlert();
-    }
+      displayAlert(userInput);
+    };
   });
+
 });
