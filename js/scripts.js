@@ -25,15 +25,10 @@ const numbersAscending = function(number) {
 };
 
 const numbersDescending = function(number) {
-  let numbers = [];
-  for (let i=number; i > 0; i--) {
-    numbers.push(i);
-  };
-  return numbers;
+  return numbersAscending(number).reverse();
 };
 
-const pingPongTransformer = function(number) {
-  const numbers = numbersAscending(number);
+const pingPongTransformer = function(numbers) {
 
   return numbers.map(function(number) {
     if (isDivisibleBy15(number)) {
@@ -52,12 +47,18 @@ const pingPongTransformer = function(number) {
 
 $(function(){
 
-  const displayResults = function(userInput) {
+  const displayResults = function(userInput, direction) {
+
     const userNumber = Number(userInput);
-    const pingPongList = pingPongTransformer(userNumber);
+    const numbers = direction(userNumber);
+    const pingPongList = pingPongTransformer(numbers);
 
     if (userNumber === 0) {
-      return displayAlert("0");
+      return displayAlert(0);
+    };
+
+    if (userNumber > 250) {
+      return displayAlert(userNumber);
     };
 
     $("#pingPongAlert").empty();
@@ -76,8 +77,10 @@ $(function(){
 
     if (userInput === "") {
       $("#pingPongAlert").text("We cant pong you if you don't input a number!");
-    } else if (Number(userInput) === 0) {
+    } else if (userInput === 0) {
       $("#pingPongAlert").text("Looks like you typed a zero. Guess there will be no pongs for you today.");
+    } else if (userInput > 250) {
+      $("#pingPongAlert").text("If you are seeking that many pings or pongs I would strongly advise you seek the help of a medical professional.");
     } else {
       $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years.");
     } ;
@@ -90,10 +93,24 @@ $(function(){
     const userInput = $("#pingPongInput").val();
 
     if (isNumber(userInput)) {
-      displayResults(userInput);
+      displayResults(userInput, numbersAscending);
     } else {
       displayAlert(userInput);
     };
   });
+
+  $("#pongButton").click(function(event){
+
+    event.preventDefault();
+
+    const userInput = $("#pingPongInput").val();
+
+    if (isNumber(userInput)) {
+      displayResults(userInput, numbersDescending);
+    } else {
+      displayAlert(userInput);
+    };
+  });
+
 
 });
