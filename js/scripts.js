@@ -8,6 +8,16 @@ const isDivisibleBy3 = function(number) {
   return number % 3 === 0;
 };
 
+const isDivisibleBy5 = function(number) {
+  return number % 5 === 0;
+};
+
+const isDivisibleBy15 = function(number) {
+  return number % 15 === 0;
+};
+
+
+
 //frontend
 
 $(function(){
