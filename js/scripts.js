@@ -16,6 +16,14 @@ const isDivisibleBy15 = function(number) {
   return number % 15 === 0;
 };
 
+const numbersAscending = function(number) {
+  let numbers = [];
+  for (let i=1; i <= number; i++) {
+    numbers.push(i);
+  };
+  return numbers;
+};
+
 const numbersDescending = function(number) {
   let numbers = [];
   for (let i=number; i > 0; i--) {
@@ -25,7 +33,7 @@ const numbersDescending = function(number) {
 };
 
 const pingPongTransformer = function(number) {
-  const numbers = numbersDescending(number);
+  const numbers = numbersAscending(number);
 
   return numbers.map(function(number) {
     if (isDivisibleBy15(number)) {

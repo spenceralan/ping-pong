@@ -29,6 +29,7 @@ Installation is quick and easy! Either open this link https://spenceralan.github
 | behavior |  input   |  output  |
 |----------|:--------:|:--------:|
 | User submits a non-numeral string | abc | "Please enter a number." |
+| User submits a 0 | 0 | "No pongs for you!" |
 | User submits a number | 3 | 1, 2, 3 |
 | User submits a number divisible by 3 | 9 | PING, 8, 7... |
 | User submits a number divisible by 5 | 10 | PONG, PING, 8... |
