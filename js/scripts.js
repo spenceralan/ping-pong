@@ -43,6 +43,16 @@ const pingPongTransformer = function(numbers) {
   });
 };
 
+const pingCounter = function(results, phrase) {
+  let count = 0;
+  results.forEach(function(result){
+    if (result === phrase) {
+      count++
+    };
+  });
+  return count;
+};
+
 //frontend
 
 $(function(){
@@ -52,6 +62,9 @@ $(function(){
     const userNumber = Number(userInput);
     const numbers = direction(userNumber);
     const pingPongList = pingPongTransformer(numbers);
+    const numberOfPings = pingCounter(pingPongList, "PING!");
+    const numberOfPongs = pingCounter(pingPongList, "PONG!");
+    const numberOfPingPongs = pingCounter(pingPongList, "PINGPONG!");
 
     if (userNumber === 0) {
       return displayAlert(0);
