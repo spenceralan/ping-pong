@@ -113,7 +113,7 @@ $(function(){
     } else if (userInput > 250) {
       $("#pingPongAlert").text("If you are seeking that many pings or pongs I would strongly advise you seek the help of a medical professional.");
     } else {
-      $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years when you have acquired that skill.");
+      $("#pingPongAlert").text("We're sorry, it appears you can read well enough to click a button but do not know what a positive whole number is! Please try again in a few years when you have acquired that skill.");
     } ;
   };
 
