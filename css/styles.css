@@ -13,6 +13,10 @@ body {
   margin-top: 75px;
 }
 
+.btn {
+  margin-top: 5px;
+}
+
 ul {
   list-style-type: none;
 }

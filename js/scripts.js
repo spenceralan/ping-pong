@@ -107,9 +107,9 @@ $(function(){
     $("#howManyPings").empty();
 
     if (userInput === "") {
-      $("#pingPongAlert").text("We can't ping or pong you if you don't input a number!");
+      $("#pingPongAlert").text("Too lazy to even click the too lazy button? Well we can't ping or pong you if you don't input a number!");
     } else if (userInput === 0) {
-      $("#pingPongAlert").text("Looks like you typed a zero. Guess there will be no pings or pongs for you today.");
+      $("#pingPongAlert").text("Looks like you typed a zero. Guess there will be no pings or pongs for you today. I mean, there was probably going to be cake too but I guess you don't want that either.");
     } else if (userInput > 250) {
       $("#pingPongAlert").text("If you are seeking that many pings or pongs I would strongly advise you seek the help of a medical professional.");
     } else {
