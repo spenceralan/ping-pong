@@ -82,6 +82,11 @@ $(function(){
 
     $("#pingPongAlert").empty();
     $("#pingPongResults").empty();
+    $("#howManyPings").empty();
+
+    displayNumberOfPings(numberOfPings, "ping");
+    displayNumberOfPings(numberOfPongs, "pong");
+    displayNumberOfPings(numberOfPingPongs, "pingpong");
 
     pingPongList.forEach(function(result) {
       $("#pingPongResults").append(`<li>${result}</li>`);
@@ -93,6 +98,7 @@ $(function(){
   const displayAlert = function(userInput) {
     $("#resultsPage").hide();
     $("#pingPongAlert").empty();
+    $("#howManyPings").empty();
 
     if (userInput === "") {
       $("#pingPongAlert").text("We can't ping or pong you if you don't input a number!");
@@ -103,6 +109,16 @@ $(function(){
     } else {
       $("#pingPongAlert").text("I'm sorry, it appears you do not know what a positive whole number is! Please try again in a few years when you have acquired that skill.");
     } ;
+  };
+
+  const displayNumberOfPings = function(number, type) {
+    if (number === 0) {
+      return;
+    } else if (number > 1) {
+      $("#howManyPings").append(`You got ${number} ${type}s!<br>`);
+    } else {
+      $("#howManyPings").append(`You got ${number} ${type}!<br>`);
+    };
   };
 
   $("#pingPongForm").submit(function(event){
