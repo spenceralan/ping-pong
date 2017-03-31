@@ -166,4 +166,7 @@ $(function(){
     };
   });
 
+  $("#gitHubButton").click(function(){
+    window.open("https://github.com/spenceralan/ping-pong-project-week-3", "_blank")
+  });
 });
