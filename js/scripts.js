@@ -4,6 +4,10 @@ const isNumber = function(userInput) {
   return !!userInput.match(/^[0-9]+$/);
 };
 
+const isDivisibleBy3 = function(number) {
+  return number % 3 === 0;
+};
+
 //frontend
 
 $(function(){
